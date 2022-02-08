@@ -4,7 +4,7 @@
 
 Let's take a look at GET requests in the Browser.
 
-Look at this repository here [here](https://github.com/CodeYourFuture/Network-Tab-Example)
+Look at this repository [here](https://github.com/CodeYourFuture/Network-Tab-Example)
 
 You should try to work out what you expect to see in the Network tab when we visit the webpage in the browser. You should create a list of the requests that will be made in this format.
 
@@ -49,6 +49,6 @@ You can see the website online [here](https://codeyourfuture.github.io/Network-T
 
 --> Write your answers here
 
-- Using the Details Panel, can you work out why?
+- Using the Preview panel, can you work out why?
 
 --> Write your answers here
