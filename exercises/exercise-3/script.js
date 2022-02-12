@@ -3,7 +3,8 @@
 Exercise 3
 ----------
 
-Complete tasks 1-3. Task 4 is an optional extra.
+- Complete tasks 1-3. Task 4 is an optional extra.
+- Open index.html using Live Server
 
 You are given the following list of movies.
 
