@@ -1,3 +1,3 @@
-# JavaScript-Core-2-Classwork-Week4
+# JavaScript-Core-2-Week 4 - Prep exercises
 
-This repo contains exercises for use in class.
+This repo contains preparation exercises for JS2 Week 4.

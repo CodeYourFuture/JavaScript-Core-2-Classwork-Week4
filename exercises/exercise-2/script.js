@@ -1,6 +1,6 @@
 /*
 
-Exercise 2
+Using setTimeout and setInterval
 ----------
 
 - Open index.html using Live Server
