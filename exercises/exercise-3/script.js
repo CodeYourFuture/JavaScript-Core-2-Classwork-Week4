@@ -48,26 +48,46 @@ Create a function called "showMovies" that
 
 function showMovies() {
   // add code here
+  for (const movie of movies) {
+    let movieDetail = document.createElement("li");
+    let movieDetailText = movie.title + " " + movie.director;
+    movieDetail.textContent = movieDetailText;
+    let allMovies = document.querySelector("#allMovies");
+    allMovies.appendChild(movieDetail);
+  }
+  let moviesNumber = document.querySelector("#moviesNumber");
+  moviesNumber.textContent = movies.length;
 }
-
 
 /*
 
 Task 2
 Create a new function called "addMovie"
-- it receives a movie object as an argument - your can create a new object for your favorite movie following using the "myMovies" objects as a guide
+- it receives a movie object as an argument - you can create a new object for your favorite movie following using the "myMovies" objects as a guide
 - it adds the new movie to the list of movies after 2 seconds. Remember to setTimeout to achieve that
 Call addMovie to add the new movie to the list and then showMovies to see the movies added on the screen.
 How many movies can you see on your page?
 
 */
 
-const myFavMovie = {
-  // add code here
-}
+const myFavMovie = {};
 
 function addMovie(movie, callback) {
-  // add code here
+  movie.preventDefault();
+  let titleInput = document.querySelector("#title").value;
+  let directorInput = document.querySelector("#director").value;
+  let typeInput = document.querySelector("#type").value;
+  let haveWatchedInput = document.querySelector("#haveWatched").value;
+  myFavMovie.title = titleInput;
+  myFavMovie.director = directorInput;
+  myFavMovie.type = typeInput;
+  if (haveWatchedInput === "on") {
+    myFavMovie.haveWatched = true;
+  } else {
+    myFavMovie.haveWatched = false;
+  }
+  movies.push(myFavMovie);
+  callback = showMovies();
 }
 
 /*
@@ -77,8 +97,6 @@ Can you change the addMovie function to make sure the new movie you just added i
 Hint: use callbacks
 
 */
-
-
 
 /*
 
@@ -92,3 +110,8 @@ Task 4 - **Extra**
 Hint: Use the functions you created on tasks 1-3
 
 */
+const moviesSub = document.querySelector("#movie-submit");
+moviesSub.addEventListener("click", addMovie);
+
+
+

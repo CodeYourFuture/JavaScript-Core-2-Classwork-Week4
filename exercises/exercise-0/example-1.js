@@ -5,3 +5,5 @@ function printGreeting() {
 }
 
 printGreeting();
+
+//should print ok as firstName is a global variable
