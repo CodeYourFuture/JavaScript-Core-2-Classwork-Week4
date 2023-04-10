@@ -5,3 +5,6 @@ function printGreeting() {
 }
 
 printGreeting();
+
+// Hello there, Moussab
+// It will be implemented correctly because firstName is declared in global scope.

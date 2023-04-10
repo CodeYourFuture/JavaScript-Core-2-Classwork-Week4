@@ -9,3 +9,16 @@ Using setTimeout and setInterval
   Hint: try searching for setInterval.
 
 */
+
+// Using set time out for changing background color
+//  const firstChange = setTimeout(() => {
+//   document.body.style.backgroundColor = "blue"
+// }, 5000)
+
+setInterval(changeBackgroundColor, 5000);
+
+function changeBackgroundColor() {
+  let color = Math.floor(Math.random() * 16777216).toString(16);
+  console.log(color);
+  document.body.style.backgroundColor = color;
+}
