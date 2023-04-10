@@ -8,3 +8,5 @@ function printCoordinates(point) {
 }
 
 printCoordinates({ x: 10, y: 3 });
+
+// The x coordinate is 2 (let x = 2  declared inside the function) but y is not defined.

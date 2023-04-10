@@ -45,11 +45,23 @@ Create a function called "showMovies" that
 - it sets the innerText of the #moviesNumber element to the total number of the movies in the array "movies"
 
 */
+const listOfMovies = document.querySelector("#allMovies");
+const moviesNumber = document.querySelector("#moviesNumber");
 
-function showMovies() {
-  // add code here
+// show movies
+function showMovies(movies) {
+  let count = 0;
+  listOfMovies.textContent = "";
+  movies.forEach((movie) => {
+    const p = document.createElement("p");
+    p.textContent = `${movie.title} - ${movie.director} `;
+    listOfMovies.appendChild(p);
+    count++;
+  });
+  moviesNumber.textContent = count;
 }
 
+showMovies(movies);
 
 /*
 
@@ -62,14 +74,22 @@ How many movies can you see on your page?
 
 */
 
-const myFavMovie = {
-  // add code here
-}
+// const myFavMovie = {
+//   title: "Interstellar",
+//   director: "Christopher Nolan",
+//   type: "Science fiction",
+//   haveWatched: true,
+// }
 
+// Add new movie to the movies and call the showMovies function to show new added movie.
 function addMovie(movie, callback) {
-  // add code here
+  setTimeout(() => {
+    movies.push(movie);
+    callback(movies);
+  }, 2000);
 }
 
+// addMovie(myFavMovie, showMovies)
 /*
 
 Task 3
@@ -77,8 +97,6 @@ Can you change the addMovie function to make sure the new movie you just added i
 Hint: use callbacks
 
 */
-
-
 
 /*
 
@@ -92,3 +110,25 @@ Task 4 - **Extra**
 Hint: Use the functions you created on tasks 1-3
 
 */
+const form = document.querySelector("#addMovies");
+form.addEventListener("submit", addMovieToList);
+
+function addMovieToList(event) {
+  event.preventDefault();
+  const newMovie = {};
+  // Get values from inputes
+  const title = document.querySelector("#title").value,
+    director = document.querySelector("#director").value,
+    type = document.querySelector("#type").value,
+    checked = document.querySelector("#haveWatched").checked;
+
+  if (title !== "" && director !== "" && type !== "") {
+    //  Add properties to the newMovie object
+    newMovie["title"] = title;
+    newMovie["director"] = director;
+    newMovie["type"] = type;
+    newMovie["haveWatched"] = checked;
+  }
+  alert("Your new movie will be added after 2 sec");
+  addMovie(newMovie, showMovies);
+}
