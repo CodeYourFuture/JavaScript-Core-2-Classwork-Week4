@@ -47,7 +47,8 @@ Create a function called "showMovies" that
 */
 
 function showMovies() {
-  // add code here
+  let clearMovies = document.querySelector("#allMovies");
+  clearMovies.innerHTML = "";
   for (const movie of movies) {
     let movieDetail = document.createElement("li");
     let movieDetailText = movie.title + " " + movie.director;
@@ -70,25 +71,21 @@ How many movies can you see on your page?
 
 */
 
-const myFavMovie = {};
+// const myFavMovie = {
+//   title: "Top Gun",
+//   director: "Tony Scott",
+//   type: "action",
+//   haveWatched: true,
+// };
 
-function addMovie(movie, callback) {
-  movie.preventDefault();
-  let titleInput = document.querySelector("#title").value;
-  let directorInput = document.querySelector("#director").value;
-  let typeInput = document.querySelector("#type").value;
-  let haveWatchedInput = document.querySelector("#haveWatched").value;
-  myFavMovie.title = titleInput;
-  myFavMovie.director = directorInput;
-  myFavMovie.type = typeInput;
-  if (haveWatchedInput === "on") {
-    myFavMovie.haveWatched = true;
-  } else {
-    myFavMovie.haveWatched = false;
-  }
-  movies.push(myFavMovie);
-  callback = showMovies();
-}
+// function addMovie(movie) {
+//   setTimeout(function () {
+//     movies.push(movie);
+//   }, 2000);
+// }
+
+// addMovie(myFavMovie);
+// showMovies();
 
 /*
 
@@ -97,6 +94,22 @@ Can you change the addMovie function to make sure the new movie you just added i
 Hint: use callbacks
 
 */
+
+const myFavMovie = {
+  title: "Top Gun",
+  director: "Tony Scott",
+  type: "action",
+  haveWatched: true,
+};
+
+function addMovie(movie, callback) {
+  setTimeout(function () {
+    movies.push(movie);
+    callback();
+  }, 2000);
+}
+
+addMovie(myFavMovie, showMovies);
 
 /*
 
@@ -108,10 +121,24 @@ Task 4 - **Extra**
     - Display the updated list of movies on your page
 
 Hint: Use the functions you created on tasks 1-3
+// */
 
-*/
+function updateMovieList(event) {
+  event.preventDefault();
+  const movieObj = {};
+  movieObj.title = document.querySelector("#title").value;
+  movieObj.director = document.querySelector("#director").value;
+  movieObj.type = document.querySelector("#type").value;
+  if (document.querySelector("#haveWatched").value === "on") {
+    movieObj.haveWatched = true;
+  } else {
+    movieObj.haveWatched = false;
+  }
+  addMovie(movieObj, showMovies);
+}
+
 const moviesSub = document.querySelector("#movie-submit");
-moviesSub.addEventListener("click", addMovie);
+moviesSub.addEventListener("click", updateMovieList);
 
 
 
