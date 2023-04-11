@@ -9,3 +9,8 @@ function printCoordinates(point) {
 
 console.log(printCoordinates());
 console.log(y);
+
+//x will take the global 10
+//y will take the let value of 3 in first console.log
+//second console.log will crash with undefined y variable as it's only
+//in scope of the function

@@ -47,28 +47,45 @@ Create a function called "showMovies" that
 */
 
 function showMovies() {
-  // add code here
+  let clearMovies = document.querySelector("#allMovies");
+  clearMovies.innerHTML = "";
+  for (const movie of movies) {
+    let movieDetail = document.createElement("li");
+    let movieDetailText = movie.title + " " + movie.director;
+    movieDetail.textContent = movieDetailText;
+    let allMovies = document.querySelector("#allMovies");
+    allMovies.appendChild(movieDetail);
+  }
+  let moviesNumber = document.querySelector("#moviesNumber");
+  moviesNumber.textContent = movies.length;
 }
-
 
 /*
 
 Task 2
 Create a new function called "addMovie"
-- it receives a movie object as an argument - your can create a new object for your favorite movie following using the "myMovies" objects as a guide
+- it receives a movie object as an argument - you can create a new object for your favorite movie following using the "myMovies" objects as a guide
 - it adds the new movie to the list of movies after 2 seconds. Remember to setTimeout to achieve that
 Call addMovie to add the new movie to the list and then showMovies to see the movies added on the screen.
 How many movies can you see on your page?
 
 */
 
-const myFavMovie = {
-  // add code here
-}
+// const myFavMovie = {
+//   title: "Top Gun",
+//   director: "Tony Scott",
+//   type: "action",
+//   haveWatched: true,
+// };
 
-function addMovie(movie, callback) {
-  // add code here
-}
+// function addMovie(movie) {
+//   setTimeout(function () {
+//     movies.push(movie);
+//   }, 2000);
+// }
+
+// addMovie(myFavMovie);
+// showMovies();
 
 /*
 
@@ -78,7 +95,21 @@ Hint: use callbacks
 
 */
 
+const myFavMovie = {
+  title: "Top Gun",
+  director: "Tony Scott",
+  type: "action",
+  haveWatched: true,
+};
 
+function addMovie(movie, callback) {
+  setTimeout(function () {
+    movies.push(movie);
+    callback();
+  }, 2000);
+}
+
+addMovie(myFavMovie, showMovies);
 
 /*
 
@@ -90,5 +121,24 @@ Task 4 - **Extra**
     - Display the updated list of movies on your page
 
 Hint: Use the functions you created on tasks 1-3
+// */
 
-*/
+function updateMovieList(event) {
+  event.preventDefault();
+  const movieObj = {};
+  movieObj.title = document.querySelector("#title").value;
+  movieObj.director = document.querySelector("#director").value;
+  movieObj.type = document.querySelector("#type").value;
+  if (document.querySelector("#haveWatched").value === "on") {
+    movieObj.haveWatched = true;
+  } else {
+    movieObj.haveWatched = false;
+  }
+  addMovie(movieObj, showMovies);
+}
+
+const moviesSub = document.querySelector("#movie-submit");
+moviesSub.addEventListener("click", updateMovieList);
+
+
+
