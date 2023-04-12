@@ -53,14 +53,14 @@ let typeArea = document.querySelector("#type")
 let haveWatchedArea =document.querySelector("#haveWatched")
 let submitButton = document.querySelector("#movie-submit")
 
-function showMovies(arrayOfMovies) {
-  for (mov of arrayOfMovies){
+function showMovies(movies) {
+  for (mov of movies){
     let eachMovie = document.createElement("li")
     eachMovie.innerText = `Movie: ${mov.title}, Director: ${mov.director}`
     allMovies.appendChild(eachMovie)  
   }
-  moviesNumber.innerText = arrayOfMovies.length
-
+  moviesNumber.innerText = movies.length 
+  
 }
 
 
@@ -88,16 +88,16 @@ function addMovie(callback, movie) {
     let favoriteMovie = document.createElement("li")
     favoriteMovie.innerText = `Movie: ${movie.title}, Director: ${movie.director}`
     allMovies.appendChild(favoriteMovie)
-    moviesNumber.innerText = movies.length + 1
-
-    setTimeout(callback, 5000)
+    callback()
+    moviesNumber.innerText = movies.length +1
 }
 
 
 setTimeout(() => 
   addMovie(() => showMovies, myFavMovie), 2000);
-
 showMovies(movies)
+
+
 
 
 /*
@@ -140,8 +140,19 @@ Hint: Use the functions you created on tasks 1-3
       newMovie.haveWatched = false
     }
     console.log(newMovie)
+    
   movies.push(newMovie)
+
+    let eachMovie = document.createElement("li")
+    eachMovie.innerText = `Movie: ${newMovie.title}, Director: ${newMovie.director}`
+    allMovies.appendChild(eachMovie)
+    moviesNumber.innerText = movies.length + 1
+  
 }
+
+
+
+
 
 
 console.log(movies)
