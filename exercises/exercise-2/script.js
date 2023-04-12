@@ -9,3 +9,25 @@ Using setTimeout and setInterval
   Hint: try searching for setInterval.
 
 */
+
+// function changeBackground () {
+//   let element = document.getElementById("main");
+//   element.style.backgroundColor = "blue";
+// }
+
+// setTimeout(changeBackground, 5000);
+
+let colours = ["blue", "purple", "orange", "yellow", "green"];
+
+function changeBackground () {
+    let element = document.getElementById("main");
+    count = 0;
+    while (count < 5){
+      element.style.backgroundColor = colours[count];
+      count++;
+    }
+    
+  }
+
+setInterval(changeBackground, 5000);
+

@@ -9,3 +9,7 @@ function printCoordinates(point) {
 
 console.log(printCoordinates());
 console.log(y);
+
+// The x coordinate is 10
+// The y coordinate is 3
+// y is not defined

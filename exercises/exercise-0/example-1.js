@@ -5,3 +5,5 @@ function printGreeting() {
 }
 
 printGreeting();
+
+// the output is going to be: Hello there, Moussab
