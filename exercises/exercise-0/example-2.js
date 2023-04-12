@@ -4,4 +4,6 @@ function printGreeting() {
 
 const firstName = "Moussab";
 
-printGreeting();
+printGreeting(); 
+
+//console.log will show a string "Hello there, Moussab", using a global variable in function and function calling after this

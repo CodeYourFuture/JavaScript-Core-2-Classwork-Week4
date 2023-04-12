@@ -4,4 +4,6 @@ function printGreeting() {
 
 console.log(`Hello there, ${firstName}`);
 
-printGreeting();
+printGreeting(); 
+
+// gonna be an error (not defined), we are trying to call local variable outside of the function
