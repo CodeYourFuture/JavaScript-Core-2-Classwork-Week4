@@ -9,3 +9,13 @@ Using setTimeout and setInterval
   Hint: try searching for setInterval.
 
 */
+let colors = ["red", "green", "blue", "pink","yellow"];
+
+function changeBackgroundColor() {
+  const randomIndex = Math.floor(Math.random() * colors.length);
+  const randomColor = colors[randomIndex];
+  document.body.style.backgroundColor = randomColor;
+}
+
+setTimeout(changeBackgroundColor, 5000);
+setInterval(changeBackgroundColor, 5000);
