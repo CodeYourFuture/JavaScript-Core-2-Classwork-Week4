@@ -45,11 +45,20 @@ Create a function called "showMovies" that
 - it sets the innerText of the #moviesNumber element to the total number of the movies in the array "movies"
 
 */
+//variables:
+const ul = document.querySelector("#allMovies");
+const spanMoviesNum= document.querySelector("#moviesNumber");
 
 function showMovies() {
-  // add code here
+  movies.forEach((movie) => {
+    const p = document.createElement("p");
+    p.innerText = `${movie.title} by ${movie.director}`;
+    ul.appendChild(p);
+  });
+  spanMoviesNum.innerText = movies.length;
 }
 
+//showMovies(movies);
 
 /*
 
@@ -63,12 +72,23 @@ How many movies can you see on your page?
 */
 
 const myFavMovie = {
-  // add code here
-}
+  title: "the shack",
+  director: "Stuart Hazeldin",
+  type: "Drama/Fantasy",
+  haveWatched: true,
+};
 
 function addMovie(movie, callback) {
-  // add code here
+
+const p = document.createElement("p");
+p.innerText = `${myFavMovie.title} by ${myFavMovie.director}`;
+ul.appendChild(p);
+showMovies(movies);
+spanMoviesNum.innerText ++;
+
 }
+
+setTimeout(addMovie, 2000);
 
 /*
 

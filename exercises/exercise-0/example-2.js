@@ -5,3 +5,6 @@ function printGreeting() {
 const firstName = "Moussab";
 
 printGreeting();
+//out put
+//Hello there, Moussab
+//global scope

@@ -5,3 +5,7 @@ function printGreeting() {
 }
 
 printGreeting();
+
+//out put:
+//Hello there, Moussab
+//it has global scope
