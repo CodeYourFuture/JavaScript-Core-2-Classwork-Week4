@@ -86,14 +86,35 @@ How many movies can you see on your page?
 
 */
 
+// Here we have a movie object in the myFavMovie array AND a callback function that will be called after new movies are added to the array.
+// setTimeout calls a delay of 2000 milliseconds and in its array it use the .push method to push new movies. 
+// The addMovie function adds Godfather to the list showMovies and we change from 4 to 5 movies.
+
 const myFavMovie = {
-  // add code here
-}
+  title: "Godfather",
+  director: "Francis Ford Coppola",
+  type: "action",
+  haveWatched: true,
+};
 
 function addMovie(movie, callback) {
   // add code here
+  {
+  
+  setTimeout(() => {
+    
+    movies.push(movie);
+    
+    // call the callback function to update the UI
+    callback();
+  }, 2000);
 }
 
+
+addMovie(myFavMovie, showMovies);
+
+  
+  
 /*
 
 Task 3
