@@ -5,3 +5,5 @@ function printGreeting() {
 }
 
 printGreeting();
+//will print 'Hello there, Moussab'
+//because variable was assigned before function
