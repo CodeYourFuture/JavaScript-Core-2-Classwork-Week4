@@ -46,9 +46,20 @@ Create a function called "showMovies" that
 
 */
 
-function showMovies() {
-  // add code here
-}
+  // console.log(`the movie is ${movie.title} and director is ${movie.director}`);
+  let movieList = document.querySelector("#allMovies");
+  let movieNum = document.querySelector('#moviesNumber');
+  
+  function showMovies() {
+      movies.forEach(el => {
+        let pElement = document.createElement('p');
+        pElement.textContent = `The Movie is: ${el.title}, and Director by: ${el.director}`;
+        movieList.appendChild(pElement);
+      })
+      movieNum.innerText = movies.length;
+  }
+  showMovies()
+
 
 
 /*
@@ -63,13 +74,20 @@ How many movies can you see on your page?
 */
 
 const myFavMovie = {
-  // add code here
-}
+  title: "Focus",
+  director: "Glenn Ficarra & John Requa",
+  type: "crime comedy-drama ",
+  haveWatched: true,
+};
 
 function addMovie(movie, callback) {
-  // add code here
+    let P = document.createElement('p');
+    P.innerText = `My Favorite is: ${myFavMovie.title}, and Director by: ${myFavMovie.director}`;
+    movieList.appendChild(P)
+  
+    movieNum.innerText ++;
 }
-
+setTimeout(addMovie, 2000)
 /*
 
 Task 3
