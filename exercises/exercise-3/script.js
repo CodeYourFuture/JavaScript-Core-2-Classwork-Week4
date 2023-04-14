@@ -135,10 +135,6 @@ function addMovie(movie, callback) {
 }
 
  
-  
-
-/*
-
 Task 4 - **Extra**
 - On the form with id #addMovies, add a "submit" event listener
 - When the button is clicked you need to:
