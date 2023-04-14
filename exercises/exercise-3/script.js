@@ -93,9 +93,7 @@ function addMovie(callback, movie) {
 }
 
 
-setTimeout(() => 
-  addMovie(() => showMovies, myFavMovie), 2000);
-showMovies(movies)
+
 
 
 
@@ -127,11 +125,11 @@ Hint: Use the functions you created on tasks 1-3
   
   function createNewMovie(event){
   event.preventDefault()
-
+  allMovies.innerHTML = ""
   let newMovie = {};
   
-  newMovie.title = titleArea.value;
-  newMovie.director = directorArea.value;
+  newMovie[title] = titleArea.value;
+  newMovie[director] = directorArea.value;
 
   newMovie.type = typeArea.value;
     if (haveWatchedArea.checked){
@@ -139,22 +137,20 @@ Hint: Use the functions you created on tasks 1-3
     } else{
       newMovie.haveWatched = false
     }
-    console.log(newMovie)
-    
   movies.push(newMovie)
+  showMovies(movies)
+    // let eachMovie = document.createElement("li")
+    // eachMovie.innerText = `Movie: ${newMovie.title}, Director: ${newMovie.director}`
+    // allMovies.appendChild(eachMovie)
+    // moviesNumber.innerText = movies.length + 1
 
-    let eachMovie = document.createElement("li")
-    eachMovie.innerText = `Movie: ${newMovie.title}, Director: ${newMovie.director}`
-    allMovies.appendChild(eachMovie)
-    moviesNumber.innerText = movies.length + 1
+    
   
 }
 
+setTimeout(() => 
+  addMovie(() => showMovies, myFavMovie), 2000);
+showMovies(movies)
 
-
-
-
-
-console.log(movies)
 
 
