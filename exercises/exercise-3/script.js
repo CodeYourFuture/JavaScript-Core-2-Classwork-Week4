@@ -48,8 +48,21 @@ Create a function called "showMovies" that
 
 function showMovies() {
   // add code here
-}
 
+  const allMoviesElem = document.querySelector("#allMovies");
+  allMoviesElem.innerHTML = "";
+  let count = 0;
+
+  movies.forEach((movie) => {
+    const movieElem = document.createElement("p");
+    movieElem.textContent = `${movie.title} - ${movie.director}`;
+    allMoviesElem.appendChild(movieElem);
+    count++;
+  });
+
+  const moviesNumberElem = document.querySelector("#moviesNumber");
+  moviesNumberElem.textContent = count;
+}
 
 /*
 
@@ -64,12 +77,22 @@ How many movies can you see on your page?
 
 const myFavMovie = {
   // add code here
-}
+
+  title: "The Matrix",
+  director: "Lana Wachowski",
+  type: "sci-fi",
+  haveWatched: true,
+};
 
 function addMovie(movie, callback) {
   // add code here
+  setTimeout(() => {
+    movies.push(movie);
+    callback();
+  }, 2000);
 }
 
+addMovie(myFavMovie, showMovies);
 /*
 
 Task 3
@@ -77,8 +100,16 @@ Can you change the addMovie function to make sure the new movie you just added i
 Hint: use callbacks
 
 */
+function addMovie(movie, callback) {
+  // Add the new movie to the array
+  movies.push(movie);
 
-
+  // Wait 2 seconds before calling the callback
+  setTimeout(function () {
+    // Call the callback function
+    callback();
+  }, 2000);
+}
 
 /*
 
