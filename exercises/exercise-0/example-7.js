@@ -9,3 +9,6 @@ function printCoordinates(point) {
 
 console.log(printCoordinates());
 console.log(y);
+
+
+// y is undefined as it just defined in the "printCoordinates" function

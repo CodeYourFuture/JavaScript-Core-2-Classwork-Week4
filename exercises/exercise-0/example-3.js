@@ -5,3 +5,9 @@ function printGreeting() {
 console.log(`Hello there, ${firstName}`);
 
 printGreeting();
+
+
+
+
+
+//console.log is out of the function
