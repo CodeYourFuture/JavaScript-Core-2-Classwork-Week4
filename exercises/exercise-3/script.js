@@ -45,31 +45,44 @@ Create a function called "showMovies" that
 - it sets the innerText of the #moviesNumber element to the total number of the movies in the array "movies"
 
 */
-
+const moviesNumber = document.querySelector("#moviesNumber");
+const allMovies = document.querySelector("#allMovies");
 function showMovies() {
-  // add code here
+  movies.forEach((movie) => {
+    let pElement = document.createElement("li");
+    pElement.textContent = `${movie.title} directed by ${movie.director} `;
+    allMovies.appendChild(pElement);
+  });
+  moviesNumber.innerText = movies.length;
 }
-
-
 /*
 
 Task 2
 Create a new function called "addMovie"
-- it receives a movie object as an argument - your can create a new object for your favorite movie following using the "myMovies" objects as a guide
-- it adds the new movie to the list of movies after 2 seconds. Remember to setTimeout to achieve that
-Call addMovie to add the new movie to the list and then showMovies to see the movies added on the screen.
+- it receives a movie object as an argument - your can create a new object for your favorite
+ movie following using the "myMovies" objects as a guide
+- it adds the new movie to the list of movies after 2 seconds. Remember to setTimeout to 
+achieve that
+Call addMovie to add the new movie to the list and then showMovies to see the movies added on
+ the screen.
 How many movies can you see on your page?
 
 */
 
 const myFavMovie = {
-  // add code here
-}
+  title: "Knockin' on Heaven's Door",
+  director: "Thomas Jahn",
+  type: "crime tragicomedy film",
+  haveWatched: false,
+};
 
 function addMovie(movie, callback) {
-  // add code here
+  setTimeout(function () {
+    movies.push(movie);
+    callback();
+  }, 2000);
 }
-
+addMovie(myFavMovie, showMovies);
 /*
 
 Task 3
@@ -77,8 +90,6 @@ Can you change the addMovie function to make sure the new movie you just added i
 Hint: use callbacks
 
 */
-
-
 
 /*
 
