@@ -46,9 +46,33 @@ Create a function called "showMovies" that
 
 */
 
+// First is the function that call the whole array - global function. Inside the brackets - local - two const variable use the document.getElementById for allMovies AND moviesNumber.  
+// The innerHTML property sets or returns the HTML content (inner HTML) of the both elements. The variable moviesCount = 0 defines the iteration start from the first listed movie.
+// The local function for start the iteration from first to last and create a p element for each movie and set the innerText to the movieTitle AND director.
+// In this array of array it appends to the allMoviesDiv. Then the moviesCount add on a new count for each movie that been processed.
+// Then the innerText function of the #moviesNumber span to moviesCount and display the total number of movies in the array.
+
 function showMovies() {
-  // add code here
+  const allMoviesDiv = document.getElementById("allMovies");
+  const moviesNumberSpan = document.getElementById("moviesNumber");
+  
+  allMoviesDiv.innerHTML = "";
+  let moviesCount = 0;
+  
+  for (let i = 0; i < movies.length; i++) {
+    const movie = movies[i];
+    
+    const movieInfo = document.createElement("p");
+    movieInfo.innerText = `${movie.title} - ${movie.director}`;
+    
+    allMoviesDiv.appendChild(movieInfo);
+    
+    moviesCount++;
+  }
+  
+  moviesNumberSpan.innerText = moviesCount;
 }
+
 
 
 /*
