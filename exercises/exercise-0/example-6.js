@@ -8,3 +8,10 @@ function printCoordinates(point) {
 }
 
 printCoordinates({ x: 10, y: 3 });
+
+// output is :
+// The x coordinate is 2
+// y is not defined
+
+// variable x is resign inside function as local var
+// y is defined 

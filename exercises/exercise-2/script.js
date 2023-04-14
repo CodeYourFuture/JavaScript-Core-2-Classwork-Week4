@@ -9,3 +9,7 @@ Using setTimeout and setInterval
   Hint: try searching for setInterval.
 
 */
+
+  setTimeout(function(){
+     document.getElementById("main").style.background = "red";
+}, 5000)

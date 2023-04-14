@@ -47,7 +47,7 @@ Create a function called "showMovies" that
 */
 
 function showMovies() {
-  // add code here
+  
 }
 
 
