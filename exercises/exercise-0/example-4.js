@@ -5,3 +5,4 @@ const result = [1, 2, 3, 4, 5].map(function multiplyBy5(num) {
 });
 
 console.log(result);
+// Will return array with numbers

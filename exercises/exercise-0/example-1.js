@@ -5,3 +5,4 @@ function printGreeting() {
 }
 
 printGreeting();
+// It will print `Hello there, Moussab`, as we are using global scope

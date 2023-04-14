@@ -9,3 +9,4 @@ function printCoordinates(point) {
 
 console.log(printCoordinates());
 console.log(y);
+// We will get an error, as y defined only inside function.
