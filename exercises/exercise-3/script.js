@@ -101,7 +101,7 @@ function addMovie(movie, callback) {
   // add code here
   {
   
-  setTimeout(() => {
+ setTimeout(() => {
     
     movies.push(movie);
     
@@ -121,9 +121,21 @@ Task 3
 Can you change the addMovie function to make sure the new movie you just added is showing on the screen?
 Hint: use callbacks
 
-*/
+// It start with a function that call two arguments - movie, callback - and in the outer array setTimeOut simulate a 2000 millisecond delay.
+// In the inner array i use the .push method to add movies to the array. Then the callback function calls the new movie as argument and updates the array.
 
 
+function addMovie(movie, callback) {
+  
+  setTimeout(() => {
+    movies.push(movie);
+    
+    callback(movie);
+  }, 2000);
+}
+
+ 
+  
 
 /*
 
