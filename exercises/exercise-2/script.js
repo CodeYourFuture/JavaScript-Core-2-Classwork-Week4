@@ -9,3 +9,13 @@ Using setTimeout and setInterval
   Hint: try searching for setInterval.
 
 */
+
+// const change = document.getElementById("main");
+// setTimeout(() => {
+//   change.style.backgroundColor ="red";
+// }, 5000);
+
+const change = document.getElementById("main");
+setInterval(() => {
+  change.style.backgroundColor = Math.floor(Math.random() * 16777215);
+}, 5000);

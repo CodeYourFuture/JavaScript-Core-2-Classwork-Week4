@@ -8,3 +8,6 @@ function printCoordinates(point) {
 }
 
 printCoordinates({ x: 10, y: 3 });
+
+
+// y declared after function then it,s undefined

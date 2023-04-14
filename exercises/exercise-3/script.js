@@ -47,7 +47,15 @@ Create a function called "showMovies" that
 */
 
 function showMovies() {
-  // add code here
+  const allMovies = document.querySelector("#allMovies");
+  allMovies.innerHTML="";
+  movies.forEach(movie => {
+    const movieElement = document.createElement("p");
+    movieElement.innerText =`${movie.title} - ${movie.director}`;
+    allMovies.appendChild(movieElement);
+  });
+  const moviesNum = document.querySelector("#moviesNumber");
+  moviesNum.innerText = movies.length;
 }
 
 
@@ -62,24 +70,38 @@ How many movies can you see on your page?
 
 */
 
-const myFavMovie = {
-  // add code here
-}
+// const myFavMovie = { title: "The last of us", director: "Nick Offerman" };
+// addMovie(myFavMovie);
 
-function addMovie(movie, callback) {
-  // add code here
-}
-
+// function addMovie(movie , callbacks) {
+//   setTimeout(() => {
+//     movies.push(movie);
+//     showMovies();
+//   }, 2000);
+  
+// }
+// showMovies()
 /*
 
 Task 3
 Can you change the addMovie function to make sure the new movie you just added is showing on the screen?
 Hint: use callbacks
 
+
 */
+const myFavMovie1 = { title: "The last of us", director: "Nick Offerman" };
 
 
-
+function addMovie(movie ,callbacks) {
+  setTimeout(() => {
+    movies.push(movie);
+    // showMovies();
+    callbacks();
+  }, 2000);
+}
+// showMovies();
+addMovie(myFavMovie1,showMovies);
+showMovies()
 /*
 
 Task 4 - **Extra**
@@ -92,3 +114,25 @@ Task 4 - **Extra**
 Hint: Use the functions you created on tasks 1-3
 
 */
+
+const form = document.querySelector("#addMovies");
+form.addEventListener("submit" , addMovieToList);
+
+function addMovieToList(event){
+  event.preventDefault();
+  const newMovie = {};
+  const title = document.querySelector("#title").value;
+  const director = document.querySelector("#director").value;
+  type=document.querySelector("#type").value,
+  checked = document.querySelector("#haveWatched").checked;
+
+  if (title !== "" && director !=="" && type !== "" ){
+    newMovie["title"]=title;
+    newMovie["director"]=director;
+    newMovie["type"]=type;
+    newMovie["haveWatched"]=checked;
+  }
+  alert("Your new movie will be added after 2 sec");
+  addMovie(newMovie,showMovies)
+}
+
