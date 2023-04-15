@@ -5,3 +5,5 @@ function printGreeting() {
 }
 
 printGreeting();
+
+// its printing username whuch is a gobal variable, outide the function.
