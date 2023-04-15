@@ -46,10 +46,16 @@ Create a function called "showMovies" that
 
 */
 
-function showMovies() {
-  // add code here
+function showMovies(arrayOfMovies) {
+  arrayOfMovies.forEach(element => {
+    let pElement = document.createElement("p");
+    pElement.innerText = ` ${element.title} by ${element.director}`;
+    document.querySelector("#allMovies").appendChild(pElement);
+  });
+  document.querySelector("#moviesNumber").innerText = arrayOfMovies.length;
 }
 
+showMovies(movies);
 
 /*
 
@@ -63,13 +69,19 @@ How many movies can you see on your page?
 */
 
 const myFavMovie = {
-  // add code here
-}
+  title: "Men in black",
+  director: "Barry Sonnenfeld",
+  type: "action comedy",
+  haveWatched: true,
+};
 
 function addMovie(movie, callback) {
-  // add code here
+  setTimeout(movies.push(movie), 2000);
+  document.querySelector("#allMovies").innerHTML = "";
+  callback(movies);
 }
 
+addMovie(myFavMovie, showMovies);
 /*
 
 Task 3
@@ -92,3 +104,12 @@ Task 4 - **Extra**
 Hint: Use the functions you created on tasks 1-3
 
 */
+document.querySelector("#addMovies").addEventListener("submit", function(event) {
+  event.preventDefault();
+  let newMovie = {};
+  newMovie.title = document.querySelector("#title").value;
+  newMovie.director = document.querySelector("#director").value;
+  newMovie.type = document.querySelector("#type").value;
+  newMovie.haveWatched = document.querySelector("#haveWatched").value;
+  addMovie(newMovie, showMovies);
+})

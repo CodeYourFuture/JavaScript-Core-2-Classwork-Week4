@@ -13,5 +13,9 @@
   "bugs": {
     "url": "https://github.com/CodeYourFuture/JavaScript-Core-2-Classwork-Week4-London8/issues"
   },
+
+  "devDependencies": {
+    "jest": "^29.5.0"
+  },
   "homepage": "https://github.com/CodeYourFuture/JavaScript-Core-2-Classwork-Week4-London8#readme"
 }

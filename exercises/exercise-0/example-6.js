@@ -8,3 +8,7 @@ function printCoordinates(point) {
 }
 
 printCoordinates({ x: 10, y: 3 });
+
+// The x coordinate is 10
+// The y coordinate is 3
+// y is not defined
