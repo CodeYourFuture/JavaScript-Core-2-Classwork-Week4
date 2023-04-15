@@ -12,7 +12,7 @@ Using setTimeout and setInterval
 
 // function changeBackground () {
 //   let element = document.getElementById("main");
-//   element.style.backgroundColor = "blue";
+//   element.style.backgroundColor = "green";
 // }
 
 // setTimeout(changeBackground, 5000);
@@ -21,11 +21,12 @@ let colours = ["blue", "purple", "orange", "yellow", "green"];
 
 function changeBackground () {
     let element = document.getElementById("main");
-    count = 0;
-    while (count < 5){
-      element.style.backgroundColor = colours[count];
-      count++;
-    }
+    count = Math.round(Math.random() * 5);
+    element.style.backgroundColor = colours[count];
+    // while (count < 5){
+    //   element.style.backgroundColor = colours[count];
+    //   count++;
+    // }
     
   }
 
