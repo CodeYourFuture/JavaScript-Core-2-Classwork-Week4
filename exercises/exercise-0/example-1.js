@@ -5,3 +5,5 @@ function printGreeting() {
 }
 
 printGreeting();
+
+//it's going to print hello there Moussab  , because first name is a global variable
