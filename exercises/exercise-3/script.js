@@ -84,16 +84,26 @@ const myFavMovie = {
 }
 
 
+// function addMovie(callback, movie) {
+//     let favoriteMovie = document.createElement("li")
+//     favoriteMovie.innerText = `Movie: ${movie.title}, Director: ${movie.director}`
+//     allMovies.appendChild(favoriteMovie)
+//     callback()
+//     moviesNumber.innerText = movies.length +1
+// }
+
 function addMovie(callback, movie) {
-    let favoriteMovie = document.createElement("li")
-    favoriteMovie.innerText = `Movie: ${movie.title}, Director: ${movie.director}`
-    allMovies.appendChild(favoriteMovie)
+    movies.push(movie)
+    allMovies.innerHTML = "";
+    showMovies(movies)
     callback()
     moviesNumber.innerText = movies.length +1
 }
 
 
-
+setTimeout(() => 
+  addMovie(() => showMovies, myFavMovie), 2000);
+showMovies(movies)
 
 
 
@@ -128,10 +138,10 @@ Hint: Use the functions you created on tasks 1-3
   allMovies.innerHTML = ""
   let newMovie = {};
   
-  newMovie[title] = titleArea.value;
-  newMovie[director] = directorArea.value;
+  newMovie["title"] = titleArea.value;
+  newMovie["director"] = directorArea.value;
 
-  newMovie.type = typeArea.value;
+  newMovie["type"] = typeArea.value;
     if (haveWatchedArea.checked){
     newMovie.haveWatched = true
     } else{
@@ -148,9 +158,6 @@ Hint: Use the functions you created on tasks 1-3
   
 }
 
-setTimeout(() => 
-  addMovie(() => showMovies, myFavMovie), 2000);
-showMovies(movies)
 
 
 
