@@ -46,10 +46,18 @@ Create a function called "showMovies" that
 
 */
 
-function showMovies() {
-  // add code here
-}
+let movieList = document.querySelector("#allMovies");
+let movieNum = document.querySelector("#moviesNumber");
 
+function showMovies() {
+  movies.forEach((el) => {
+    let pElement = document.createElement("p");
+    pElement.textContent = `The Movie is: ${el.title}, and Director by: ${el.director}`;
+    movieList.appendChild(pElement);
+  });
+  movieNum.innerText = movies.length;
+}
+showMovies();
 
 /*
 
@@ -63,12 +71,20 @@ How many movies can you see on your page?
 */
 
 const myFavMovie = {
-  // add code here
-}
+  title: "Jurassic world",
+  director: "Steven S Berg",
+  type: "Sci Fi ",
+  haveWatched: true,
+};
 
 function addMovie(movie, callback) {
-  // add code here
+  setTimeout(function () {
+    movies.push(movie);
+    callback();
+  }, 2000);
 }
+
+addMovie(myFavMovie, showMovies);
 
 /*
 
@@ -77,8 +93,6 @@ Can you change the addMovie function to make sure the new movie you just added i
 Hint: use callbacks
 
 */
-
-
 
 /*
 
