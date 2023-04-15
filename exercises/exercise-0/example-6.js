@@ -8,3 +8,6 @@ function printCoordinates(point) {
 }
 
 printCoordinates({ x: 10, y: 3 });
+
+// y is not defined it can be defined in via point.
+// correction causes crash
