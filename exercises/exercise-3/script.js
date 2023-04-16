@@ -46,9 +46,21 @@ Create a function called "showMovies" that
 
 */
 
+
 function showMovies() {
-  // add code here
+  const allMovies = document.getElementById("allMovies");
+  const moviesNumber = document.getElementById("moviesNumber");
+
+  let moviesHtml = "";
+  movies.forEach((movie) => {
+     const movieHtml = `<p>${movie.title} ${movie.director}</p>`;
+     moviesHtml += movieHtml;
+  });
+
+  allMovies.innerHTML = moviesHtml;
+  moviesNumber.innerText = movies.length;
 }
+
 
 
 /*
@@ -62,13 +74,23 @@ How many movies can you see on your page?
 
 */
 
-const myFavMovie = {
-  // add code here
+function addMovie(movie, callback) {
+  setTimeout(() => {
+    movies.push(movie);
+    callback();
+  }, 2000);
 }
 
-function addMovie(movie, callback) {
-  // add code here
-}
+const myFavoriteMovie = {
+  title: "Titanic-2",
+  director: "Saim Korkmaz",
+  type: "comedy",
+  haveWatched: true,
+};
+
+addMovie(myFavoriteMovie, showMovies);
+
+
 
 /*
 
@@ -77,8 +99,6 @@ Can you change the addMovie function to make sure the new movie you just added i
 Hint: use callbacks
 
 */
-
-
 
 /*
 
@@ -92,3 +112,28 @@ Task 4 - **Extra**
 Hint: Use the functions you created on tasks 1-3
 
 */
+
+  const addMoviesForm = document.querySelector("#addMovies");
+
+  addMoviesForm.addEventListener("submit", function (event) {
+    event.preventDefault(); // Prevent form submission
+
+    const movieTitle = document.getElementById("title").value;
+    const movieDirector = document.getElementById("director").value;
+    const movieType = document.getElementById("type").value;
+    const haveWatched = document.getElementById("haveWatched").checked;
+
+    const newMovie = {
+      title: movieTitle,
+      director: movieDirector,
+      type: movieType,
+      haveWatched: haveWatched,
+    };
+
+    addMovie(newMovie, function () {
+      showMovies();
+    });
+
+    // Reset form fields after adding the new movie
+    addMoviesForm.reset();
+  });
