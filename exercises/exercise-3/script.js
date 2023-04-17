@@ -45,9 +45,22 @@ Create a function called "showMovies" that
 - it sets the innerText of the #moviesNumber element to the total number of the movies in the array "movies"
 
 */
+let allMovies = document.querySelector("#allMovies")
+let moviesNumber = document.querySelector("#moviesNumber")
+let titleArea = document.querySelector("#title")
+let directorArea = document.querySelector("#director")
+let typeArea = document.querySelector("#type")
+let haveWatchedArea =document.querySelector("#haveWatched")
+let submitButton = document.querySelector("#movie-submit")
 
-function showMovies() {
-  // add code here
+function showMovies(movies) {
+  for (mov of movies){
+    let eachMovie = document.createElement("li")
+    eachMovie.innerText = `Movie: ${mov.title}, Director: ${mov.director}`
+    allMovies.appendChild(eachMovie)  
+  }
+  moviesNumber.innerText = movies.length 
+  
 }
 
 
@@ -64,11 +77,36 @@ How many movies can you see on your page?
 
 const myFavMovie = {
   // add code here
+  title: "The Holiday",
+  director: "Nancy Meyers",
+  type: "Romance/Comedy",
+  haveWatched: true,
 }
 
-function addMovie(movie, callback) {
-  // add code here
+
+// function addMovie(callback, movie) {
+//     let favoriteMovie = document.createElement("li")
+//     favoriteMovie.innerText = `Movie: ${movie.title}, Director: ${movie.director}`
+//     allMovies.appendChild(favoriteMovie)
+//     callback()
+//     moviesNumber.innerText = movies.length +1
+// }
+
+function addMovie(callback, movie) {
+    movies.push(movie)
+    allMovies.innerHTML = "";
+    showMovies(movies)
+    callback()
+    moviesNumber.innerText = movies.length +1
 }
+
+
+setTimeout(() => 
+  addMovie(showMovies, myFavMovie), 2000);
+showMovies(movies)
+
+
+
 
 /*
 
@@ -92,3 +130,34 @@ Task 4 - **Extra**
 Hint: Use the functions you created on tasks 1-3
 
 */
+
+  submitButton.addEventListener("click", createNewMovie)
+  
+  function createNewMovie(event){
+  event.preventDefault()
+  allMovies.innerHTML = ""
+  let newMovie = {};
+  
+  newMovie["title"] = titleArea.value;
+  newMovie["director"] = directorArea.value;
+
+  newMovie["type"] = typeArea.value;
+    if (haveWatchedArea.checked){
+    newMovie.haveWatched = true
+    } else{
+      newMovie.haveWatched = false
+    }
+  movies.push(newMovie)
+  showMovies(movies)
+    // let eachMovie = document.createElement("li")
+    // eachMovie.innerText = `Movie: ${newMovie.title}, Director: ${newMovie.director}`
+    // allMovies.appendChild(eachMovie)
+    // moviesNumber.innerText = movies.length + 1
+
+    
+  
+}
+
+
+
+

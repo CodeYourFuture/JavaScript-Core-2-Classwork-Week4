@@ -9,3 +9,16 @@ Using setTimeout and setInterval
   Hint: try searching for setInterval.
 
 */
+let background = document.querySelector("body")
+
+// setTimeout(changeColour, 5000);
+
+// function changeColour(){
+// background.style.backgroundColor = "red"
+// }
+
+setInterval(changeColour, 5000);
+
+function changeColour(){
+background.style.backgroundColor =  Math.floor(Math.random()*16777215).toString(16);
+}
