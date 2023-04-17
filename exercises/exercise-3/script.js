@@ -102,7 +102,7 @@ function addMovie(callback, movie) {
 
 
 setTimeout(() => 
-  addMovie(() => showMovies, myFavMovie), 2000);
+  addMovie(showMovies, myFavMovie), 2000);
 showMovies(movies)
 
 
