@@ -9,3 +9,12 @@ Using setTimeout and setInterval
   Hint: try searching for setInterval.
 
 */
+
+function changeBackground() {
+  const red = Math.floor(Math.random() * 256);
+  const green = Math.floor(Math.random() * 256);
+  const blue = Math.floor(Math.random() * 256);
+  document.body.style.background =
+    "rgb(" + red + ", " + green + ", " + blue + ")";
+} //setTimeout(changeBackground, 1000);
+setInterval(changeBackground, 2000);
