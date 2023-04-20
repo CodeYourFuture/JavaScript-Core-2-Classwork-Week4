@@ -48,7 +48,15 @@ Create a function called "showMovies" that
 
 function showMovies() {
   // add code here
-}
+  let allMoviesDiv = document.querySelector("allMovies");
+  movies.forEach((movie) => {
+    const movieEl = document.createElement("p");
+    movieEl.textContent = `${movie.title} by ${movie.director}`;
+    allMoviesDiv.appendChild(movieEl);
+  });
+  const moviesNumberEl = document.querySelector("#moviesNumber");
+  moviesNumberEl.innerText = movies.length;
+  }
 
 
 /*
@@ -62,15 +70,19 @@ How many movies can you see on your page?
 
 */
 
+
 const myFavMovie = {
-  // add code here
-}
+  title: "Inception",
+  director: "Christopher Nolan",
+  type: "sci-fi",
+  haveWatched: true,
+};
 
 function addMovie(movie, callback) {
   // add code here
-}
-
-/*
+  setTimeout(() => {
+   movies.push(movie);
+   /*
 
 Task 3
 Can you change the addMovie function to make sure the new movie you just added is showing on the screen?
@@ -78,6 +90,10 @@ Hint: use callbacks
 
 */
 
+   callback();
+  }, 2000);
+}
+addMovie(myFavMovie, showMovies);
 
 
 /*
@@ -92,3 +108,39 @@ Task 4 - **Extra**
 Hint: Use the functions you created on tasks 1-3
 
 */
+
+// get the form and the input fields
+const addMoviesForm = document.querySelector('#addMovies');
+const titleInput = addMoviesForm.querySelector('#title');
+const directorInput = addMoviesForm.querySelector('#director');
+const typeInput = addMoviesForm.querySelector('#type');
+const haveWatchedInput = addMoviesForm.querySelector('#haveWatched');
+
+
+// add an event listener to the form
+addMoviesForm.addEventListener('submit', function(event) {
+  event.preventDefault();
+
+   // create a new movie object with the input values
+   const newMovie = {
+    title: titleInput.value,
+    director: directorInput.value,
+    type: typeInput.value,
+    haveWatched: haveWatchedInput.checked
+  };
+  // push the new object on the movies array
+  movies.push(newMovie);
+  // call the showMovies function to display the updated list of movies
+  showMovies();
+  // reset the form input fields
+  addMoviesForm.reset();
+
+  // OR to clear existing movie list
+  // addMovie(newMovie, function () {
+  //   const allMoviesList = document.querySelector("#allMovies");
+  //   allMoviesList.innerHTML = ""; // Clear existing movie list
+  //   showMovies();
+  // });
+});
+
+
