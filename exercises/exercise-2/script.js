@@ -9,3 +9,17 @@ Using setTimeout and setInterval
   Hint: try searching for setInterval.
 
 */
+
+function changeBgrColor() {
+  const colors = ["blue", "purple", "green", "yellow", "orange"] ;
+  const getRandomColor = colors[Math.floor(Math.random() * colors.length)];
+  document.querySelector("#main").style.backgroundColor = getRandomColor
+}
+
+setTimeout(() => {
+  changeBgrColor();
+}, 5000);
+
+setInterval(() => {
+  changeBgrColor();
+}, 5000);
