@@ -48,9 +48,16 @@ Create a function called "showMovies" that
 
 function showMovies() {
   // add code here
+  const divMovie = document.querySelector("#allMovies");
+  movies.forEach((movie) => {
+    const pElement = document.createElement("p");
+    pElement.innerHTML = `${movie.title} by ${movie.director}`;
+    divMovie.appendChild(pElement);
+  });
+  const moviesNumber = document.querySelector("#moviesNumber");
+  moviesNumber.innerText = movies.length;
 }
-
-
+//showMovies(movies);
 /*
 
 Task 2
@@ -64,11 +71,23 @@ How many movies can you see on your page?
 
 const myFavMovie = {
   // add code here
-}
+  title: "The Pianist",
+  director: "Roman Polanski",
+  type: "biographical war-drama",
+};
 
-function addMovie(movie, callback) {
-  // add code here
-}
+// function addMovie(movie, callback) {
+//   // add code here
+//   const divMovie = document.querySelector("#allMovies");
+//   setTimeout(function () {
+//     const pElement = document.createElement("p");
+//     pElement.innerHTML = `${myFavMovie.title} by ${myFavMovie.director}`;
+//     divMovie.appendChild(pElement);
+//   }, 2000);
+// }
+
+// addMovie();
+// showMovies();
 
 /*
 
@@ -78,7 +97,13 @@ Hint: use callbacks
 
 */
 
-
+function addMovie(movie, callback) {
+  // add code here
+  setTimeout(function () {
+    movies.push(movie);
+    callback();
+  }, 2000);
+}
 
 /*
 
@@ -92,3 +117,20 @@ Task 4 - **Extra**
 Hint: Use the functions you created on tasks 1-3
 
 */
+function newMovie(event) {
+  event.preventDefault();
+  const movieObject = {};
+  movieObject.title = document.querySelector("#title").value;
+  movieObject.director = document.querySelector("#director").value;
+  movieObject.type = document.querySelector(" #type").value;
+  movieObject.haveWatched = document.querySelector("#haveWatched").checked;
+  addMovie(movieObject, function () {
+    const allMoviesList = document.querySelector("#allMovies");
+    allMoviesList.innerHTML = ""; // Clear existing movie list
+    showMovies();
+  });
+}
+
+addMovie(myFavMovie, showMovies);
+const submit = document.querySelector("#movie-submit");
+submit.addEventListener("click", newMovie);
