@@ -47,7 +47,15 @@ Create a function called "showMovies" that
 */
 
 function showMovies() {
-  // add code here
+  for (i = 0; i <= movies.length; i++){
+  let pElement = document.createElement("p");
+  let movieInfo = movies[i].title + " by " + movies[i].director;
+  pElement.textContent = movieInfo;
+  let allMoviesUl = document.getElementById("allMovies");
+  allMoviesUl.appendChild(pElement);
+  }
+  
+
 }
 
 
