@@ -54,6 +54,7 @@ function showMovies() {
   let allMoviesUl = document.getElementById("allMovies");
   allMoviesUl.appendChild(pElement);
   }
+  
 
 }
 
