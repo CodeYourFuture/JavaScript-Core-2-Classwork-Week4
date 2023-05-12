@@ -18,4 +18,4 @@ console.log("end of script...");
 // then print number 10 after 3 seconds
 // then print end of script s
 
-// oh thats almost right // it prints them all but in different order because of the timer thing
+// it prints them all but in different order because of the timer thing

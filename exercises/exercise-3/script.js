@@ -60,7 +60,7 @@ function showMovies(movies) {
     numberOfMovies++;
   }
 
-  //number of movies
+  //number of movies inside p element
   let numberOfMoviesEl = document.getElementById("moviesNumber");
   numberOfMoviesEl.innerText = numberOfMovies;
 }
@@ -92,11 +92,11 @@ const myFavMovie = {
 // function addMovie(movie) {
 //   setTimeout(function () {
 //     movies.push(movie);
-//   }, 0);
+//   }, 2000);
 
 //   showMovies(newSetOfMovies);
 // }
-
+//commented out addMovie as another function is used addMovie1
 /*
 
 Task 3
