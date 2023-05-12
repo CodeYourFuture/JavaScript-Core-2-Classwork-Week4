@@ -5,3 +5,9 @@ function printGreeting() {
 const firstName = "Moussab";
 
 printGreeting();
+
+// my predection :
+// Hello there , Mossab
+
+// actual answer :
+//same

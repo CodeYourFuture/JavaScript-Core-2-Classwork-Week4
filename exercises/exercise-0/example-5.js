@@ -5,3 +5,9 @@ const result = [1, 2, 3, 4, 5].map(function multiplyBy5() {
 });
 
 console.log(result);
+
+// my predection :
+// [ 50 , 50 , 50 , 50 , 50 ]
+
+// actual answer :
+//same

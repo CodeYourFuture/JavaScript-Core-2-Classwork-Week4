@@ -5,3 +5,9 @@ function printGreeting() {
 }
 
 printGreeting();
+
+// my predection :
+// Moussab
+
+// actual answer :
+// Hello there, Moussab
