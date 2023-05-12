@@ -10,4 +10,4 @@ console.log(result);
 // [ 50 , 50 , 50 , 50 , 50 ]
 
 // actual answer :
-//
+//same
