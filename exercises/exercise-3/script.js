@@ -47,9 +47,21 @@ Create a function called "showMovies" that
 */
 
 function showMovies() {
-  // add code here
-}
+  const allMovies = document.querySelector("#allMovies");
+  const moviesNumber = document.querySelector("#moviesNumber");
 
+  allMovies.innerHTML = "";
+
+  movies.forEach(movie => {
+    const paragraph = document.createElement('p');
+    paragraph.textContent = `${movie.title} - ${movie.director}`;
+    allMovies.appendChild(paragraph);
+  });
+
+  moviesNumber.innerText = movies.length;
+  }
+
+ 
 
 /*
 
@@ -67,7 +79,7 @@ const myFavMovie = {
 }
 
 function addMovie(movie, callback) {
-  // add code here
+  
 }
 
 /*
