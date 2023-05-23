@@ -79,7 +79,7 @@ const myFavMovie = {
 }
 
 function addMovie(movie, callback) {
-  
+  const myMovies = document.querySelector("#myMovies")
 }
 
 /*
