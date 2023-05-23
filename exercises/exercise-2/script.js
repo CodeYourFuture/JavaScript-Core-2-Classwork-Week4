@@ -20,7 +20,7 @@ let arrayOfColors = 0;
 setInterval(() =>  {
   backGround.style.color = colors[arrayOfColors];
   arrayOfColors = (arrayOfColors + 1) % colors.length;
-}, 5000);
+}, 1000);
 }
 changeColour();
 
